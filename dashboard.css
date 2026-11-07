@@ -1,0 +1,131 @@
+/* =========================================================
+   dashboard.css — لوحة المستخدم (يعتمد على base.css)
+   ========================================================= */
+.chip {
+    margin-inline-start: auto;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 14px;
+    background: rgba(255, 255, 255, .1);
+    border: 1px solid rgba(255, 255, 255, .18);
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 700;
+}
+.chip::before {
+    content: '';
+    width: 9px; height: 9px;
+    border-radius: 50%;
+    background: var(--signal);
+    box-shadow: 0 0 0 4px rgba(94, 224, 207, .22);
+}
+
+.dash { padding: 24px; display: grid; gap: 18px; background: linear-gradient(180deg, #F7F4FF 0%, #FFFFFF 240px); }
+
+.note {
+    text-align: center;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-2);
+    line-height: 1.8;
+}
+
+/* ---------- الرصيد المتبقي ---------- */
+.balance {
+    padding: 20px 20px 18px;
+    background: linear-gradient(135deg, #E6DFFB 0%, #D5F2EC 100%);
+    border: 1px solid #CFC6F2;
+    border-radius: 20px;
+}
+.balance h2 { font-size: 15px; font-weight: 700; color: var(--text-2); }
+.balance__value {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    margin: 4px 0 14px;
+    color: var(--ink);
+}
+.balance__value strong {
+    font-size: 46px;
+    font-weight: 800;
+    line-height: 1.1;
+    font-variant-numeric: tabular-nums;
+}
+.balance__value span { font-size: 16px; font-weight: 700; }
+
+.gauge {
+    height: 10px;
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    overflow: hidden;
+}
+.gauge i {
+    display: block;
+    height: 100%;
+    width: var(--p, 0%);
+    background: var(--teal);
+    border-radius: 999px;
+    transition: width .6s ease, background .3s ease;
+}
+.balance__sub { margin-top: 10px; font-size: 13px; color: var(--text-2); font-variant-numeric: tabular-nums; }
+.balance.is-low .gauge i { background: var(--danger); }
+.balance.is-low .balance__value { color: var(--danger); }
+
+/* ---------- الإحصائيات ---------- */
+.stats { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.stat {
+    padding: 16px;
+    background: var(--violet-soft);
+    border: 1.5px solid #D6CCF6;
+    border-radius: 18px;
+}
+.stat:nth-child(3) { background: #FDF0D5; border-color: #F3D9A0; }
+.stat:nth-child(3) dd { color: #9A4A06; }
+.stat--full { grid-column: 1 / -1; border-color: #9DDDD3; background: var(--teal-soft); }
+.stat dt { font-size: 14px; font-weight: 700; color: var(--text-2); }
+.stat dd {
+    margin-top: 4px;
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--ink);
+    font-variant-numeric: tabular-nums;
+}
+.stat--full dd { color: var(--teal); font-size: 22px; }
+
+/* ---------- الإجراءات ---------- */
+.actions { display: grid; gap: 10px; }
+.action {
+    width: 100%;
+    min-height: 52px;
+    padding: 0 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    background: #fff;
+    border: 1.5px solid #D6CFF0;
+    border-radius: 14px;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--ink);
+    text-align: start;
+    transition: border-color .2s ease, background .2s ease;
+}
+.action:hover { border-color: var(--violet); background: var(--violet-soft); }
+.action svg {
+    width: 20px; height: 20px;
+    flex-shrink: 0;
+    fill: none; stroke: var(--violet);
+    stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round;
+}
+
+.logout { padding-top: 6px; }
+
+@media (max-width: 380px) {
+    .dash { padding: 18px 16px; }
+    .balance__value strong { font-size: 38px; }
+    .stat dd { font-size: 17px; }
+    .stat--full dd { font-size: 19px; }
+}

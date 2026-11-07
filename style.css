@@ -1,0 +1,251 @@
+/* =========================================================
+   style.css — صفحة تسجيل الدخول (يعتمد على base.css)
+   ========================================================= */
+.login { padding: 26px 24px 24px; background: linear-gradient(180deg, #F7F4FF 0%, #FFFFFF 220px); }
+
+.field { margin-bottom: 18px; }
+.field > label {
+    display: block;
+    margin-bottom: 7px;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text);
+}
+
+.input {
+    width: 100%;
+    height: 52px;
+    padding: 0 16px;
+    background: #fff;
+    border: 1.5px solid #D6CFF0;
+    border-radius: 14px;
+    font-size: 16px;
+    font-weight: 500;
+    outline: none;
+    transition: border-color .2s ease, box-shadow .2s ease, background .2s ease;
+}
+.input:hover { border-color: #C9C2E6; }
+.input:focus {
+    border-color: var(--violet);
+    box-shadow: 0 0 0 4px rgba(91, 52, 214, .14);
+}
+.input[aria-invalid="true"] {
+    border-color: var(--danger);
+    background: var(--danger-soft);
+}
+
+select.input {
+    appearance: none;
+    -webkit-appearance: none;
+    cursor: pointer;
+    padding-inline-end: 16px;
+    padding-left: 44px;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%235B34D6' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: left 14px center;
+    background-size: 18px;
+}
+
+/* ---------- حقل رقم الكرت (العنصر المميز) ---------- */
+.card-field { position: relative; }
+.input--card {
+    direction: ltr;
+    text-align: center;
+    height: 60px;
+    padding: 0 40px;
+    font-size: 21px;
+    font-weight: 700;
+    letter-spacing: .06em;
+    font-variant-numeric: tabular-nums;
+}
+.input--card::placeholder { color: #B7B1D3; font-weight: 500; letter-spacing: .06em; }
+
+.card-field__status {
+    position: absolute;
+    top: 50%;
+    left: 14px;
+    width: 24px; height: 24px;
+    transform: translateY(-50%) scale(.6);
+    opacity: 0;
+    color: var(--teal);
+    transition: opacity .2s ease, transform .2s ease;
+    pointer-events: none;
+}
+.card-field__status svg {
+    width: 100%; height: 100%;
+    fill: none; stroke: currentColor;
+    stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round;
+}
+.is-valid .card-field__status { opacity: 1; transform: translateY(-50%) scale(1); }
+
+.hint { margin-top: 7px; font-size: 13px; color: var(--text-2); }
+.field-error {
+    margin-top: 8px;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--danger);
+}
+.field-error:empty { display: none; }
+
+.check {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 4px 0 20px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+}
+.check input { width: 20px; height: 20px; accent-color: var(--violet); cursor: pointer; }
+
+/* ---------- شريط التقدم ---------- */
+.progress {
+    height: 4px;
+    margin-top: 14px;
+    background: var(--violet-soft);
+    border-radius: 2px;
+    overflow: hidden;
+}
+.progress[hidden] { display: none; }
+.progress__bar {
+    height: 100%;
+    width: 0;
+    background: var(--violet);
+    border-radius: 2px;
+}
+.progress.is-running .progress__bar { animation: load 1.4s ease-out forwards; }
+.progress.is-done .progress__bar { width: 100%; background: var(--teal); transition: width .25s ease; }
+@keyframes load { from { width: 0; } to { width: 85%; } }
+
+/* ---------- الخدمات (نقاط البيع / QR / الأسعار) ---------- */
+.tiles {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px;
+    margin-top: 24px;
+    padding-top: 22px;
+    border-top: 1px solid var(--line);
+}
+.tile {
+    min-width: 0;
+    min-height: 112px;
+    padding: 14px 6px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: #fff;
+    border: 1.5px solid var(--c-soft, var(--line));
+    border-radius: 18px;
+    font-size: 13px;
+    font-weight: 700;
+    text-align: center;
+    line-height: 1.4;
+    transition: border-color .2s ease, background .2s ease;
+}
+.tile:nth-child(1) { --c: #5B34D6; --c-soft: #E6DFFB; }
+.tile:nth-child(2) { --c: #0A7A70; --c-soft: #CBEEE8; }
+.tile:nth-child(3) { --c: #B45309; --c-soft: #FCE7C2; }
+.tile:hover { border-color: var(--c); }
+.tile[aria-expanded="true"] { background: var(--c-soft); border-color: var(--c); }
+
+.tile__icon {
+    width: 48px; height: 48px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background: var(--c-soft);
+    color: var(--c);
+    transition: background .2s ease, color .2s ease;
+}
+.tile[aria-expanded="true"] .tile__icon { background: var(--c); color: #fff; }
+.tile__icon svg {
+    width: 24px; height: 24px;
+    fill: none; stroke: currentColor;
+    stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round;
+}
+
+/* ---------- اللوحات المنسدلة ---------- */
+.panel {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows .35s ease;
+}
+.panel.is-open { grid-template-rows: 1fr; }
+.panel__inner { min-height: 0; overflow: hidden; }
+.panel__body { padding-top: 16px; }
+
+.panel__lead {
+    margin-bottom: 12px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text-2);
+}
+
+.sales-list { list-style: none; border: 1px solid var(--line); border-radius: var(--r-md); overflow: hidden; }
+.sales-item {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 13px 16px;
+    font-size: 14px;
+}
+.sales-item + .sales-item { border-top: 1px solid var(--line); }
+.sales-item strong { font-weight: 700; }
+.sales-item span { color: var(--text-2); }
+
+.qr { display: grid; justify-items: center; }
+.qr img {
+    width: 176px; height: 176px;
+    padding: 10px;
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: var(--r-md);
+}
+.qr__empty {
+    width: 176px; height: 176px;
+    display: grid;
+    place-items: center;
+    padding: 16px;
+    border: 1.5px dashed #C9C2E6;
+    border-radius: var(--r-md);
+    color: var(--text-2);
+    font-size: 14px;
+    font-weight: 500;
+    text-align: center;
+}
+.qr [hidden] { display: none; }
+
+.table-wrap {
+    overflow-x: auto;
+    border: 1px solid var(--line);
+    border-radius: var(--r-md);
+}
+.prices {
+    width: 100%;
+    min-width: 330px;
+    border-collapse: collapse;
+    text-align: center;
+    font-size: 14px;
+    font-variant-numeric: tabular-nums;
+}
+.prices th {
+    padding: 12px 6px;
+    background: var(--violet-soft);
+    color: var(--ink);
+    font-weight: 800;
+    white-space: nowrap;
+}
+.prices td { padding: 12px 6px; border-top: 1px solid var(--line); white-space: nowrap; }
+.prices td:first-child { font-weight: 700; color: var(--violet-dark); }
+.prices tbody tr:nth-child(even) { background: #FAF9FE; }
+
+@media (max-width: 380px) {
+    .login { padding: 22px 16px 20px; }
+    .tiles { gap: 6px; }
+    .tile { font-size: 12px; min-height: 104px; }
+    .tile__icon { width: 42px; height: 42px; }
+    .input--card { font-size: 18px; padding: 0 36px; }
+}

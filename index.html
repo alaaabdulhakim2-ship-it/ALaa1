@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الموسسة العامة للكهرباء| تسجيل الدخول</title>
+
+    <!-- سياسة أمان المحتوى: تمنع تنفيذ أي سكربت أو تحميل أي مورد من خارج المصادر المحددة -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; form-action 'self'; base-uri 'none'; object-src 'none'">
+    <meta name="referrer" content="no-referrer">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="color-scheme" content="light">
+    <meta name="theme-color" content="#1A1340">
+    <link rel="icon" type="image/png" href="images/logo.png">
+
+    <link rel="stylesheet" href="base.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <main class="shell">
+
+        <header class="brand">
+            <div class="brand__mark brand__mark--logo">
+                <img src="images/logo.png" alt="شعار المؤسسة العامة للكهرباء" width="204" height="204">
+            </div>
+            <h1 class="brand__name">الموسسة العامة للكهرباء</h1>
+            <p class="brand__clock">
+                <span data-date>&nbsp;</span>
+                <span data-time>&nbsp;</span>
+            </p>
+        </header>
+
+        <noscript><span class="noscript-msg">يلزم تفعيل جافاسكربت لتسجيل الدخول.</span></noscript>
+
+        <!-- بانر الإعلانات: ضع صورك داخل مجلد images بنفس الأسماء -->
+        <section class="hero" aria-roledescription="carousel" aria-label="إعلانات المؤسسة العامة للكهرباء">
+            <svg class="hero__wave" viewBox="0 0 440 48" preserveAspectRatio="none" aria-hidden="true">
+                <path d="M0 0H440V14C380 50 300 46 220 26C140 6 70 10 0 40Z" fill="#4F2DCB"/>
+                <path d="M440 14C380 50 300 46 220 26C140 6 70 10 0 40" fill="none" stroke="#5EE0CF" stroke-width="3" vector-effect="non-scaling-stroke"/>
+            </svg>
+
+            <div class="hero__stage">
+                <div class="hero__slides">
+                    <figure class="slide is-active" role="group" aria-roledescription="إعلان" aria-label="1 من 3">
+                        <img src="images/ad-1.jpg" width="1100" height="573" decoding="async" fetchpriority="high"
+                             alt="المؤسسة العامة للكهرباء: اتصال أسرع لحياة أفضل، إنترنت سريع ومستقر وأمان عالٍ للشبكة ودعم فني مستمر">
+                    </figure>
+                    <figure class="slide" role="group" aria-roledescription="إعلان" aria-label="2 من 3">
+                        <img src="images/ad-2.jpg" width="1100" height="573" decoding="async"
+                             alt="المؤسسة العامة للكهرباء: طاقة آمنة لخدمة أفضل، إنترنت سريع ومستقر وأمان عالٍ للشبكة وخدمة متميزة">
+                    </figure>
+                    <figure class="slide" role="group" aria-roledescription="إعلان" aria-label="3 من 3">
+                        <img src="images/ad-3.jpg" width="1100" height="573" decoding="async"
+                             alt="المؤسسة العامة للكهرباء: معاً نحو طاقة أفضل، خدمة آمنة واستقرار دائم لمستقبل مشرق">
+                    </figure>
+                </div>
+                <button class="hero__nav hero__nav--prev" type="button" aria-label="الإعلان السابق"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button>
+                <button class="hero__nav hero__nav--next" type="button" aria-label="الإعلان التالي"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg></button>
+            </div>
+
+            <div class="hero__dots" id="heroDots"></div>
+            <button class="hero__notice" type="button" data-message="اكتب هنا نص إعلانك المهم">هام وعاجل!!</button>
+        </section>
+
+        <div class="login">
+
+            <form id="loginForm" novalidate autocomplete="off">
+
+                <div class="field">
+                    <label for="cardType">الكروت المشحونة</label>
+                    <select class="input" id="cardType" name="cardType">
+                        <option value="" selected>اختر فئة الكرت</option>
+                        <option value="card1">كرت 100 ريال</option>
+                        <option value="card2">كرت 200 ريال</option>
+                        <option value="card3">كرت 300 ريال</option>
+                    </select>
+                </div>
+
+                <div class="field">
+                    <label for="speedType">سرعة التحميل</label>
+                    <select class="input" id="speedType" name="speedType">
+                        <option value="" selected>اختر السرعة</option>
+                        <option value="slow">سرعة بطيئة</option>
+                        <option value="medium">سرعة متوسطة</option>
+                        <option value="fast">سرعة عالية</option>
+                    </select>
+                </div>
+
+                <div class="field" id="cardGroup">
+                    <label for="cardNumber">رقم الكرت</label>
+                    <div class="card-field">
+                        <input class="input input--card" id="cardNumber" name="cardNumber"
+                               type="text" inputmode="numeric" dir="ltr"
+                               autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false"
+                               placeholder="0000 0000 0000"
+                               aria-describedby="cardCount cardError" aria-invalid="false">
+                        <span class="card-field__status" aria-hidden="true">
+                            <svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>
+                        </span>
+                    </div>
+                    <p class="hint" id="cardCount">0 من 12 رقماً</p>
+                    <p class="field-error" id="cardError" role="alert"></p>
+                </div>
+
+                <label class="check" for="saveCard">
+                    <input type="checkbox" id="saveCard">
+                    <span>حفظ الكرت على هذا الجهاز</span>
+                </label>
+
+                <button class="btn btn--primary" id="loginBtn" type="submit">دخول</button>
+
+                <div class="progress" id="progress" hidden aria-hidden="true">
+                    <div class="progress__bar"></div>
+                </div>
+
+            </form>
+
+            <!-- الخدمات -->
+            <div class="tiles">
+
+                <button class="tile" type="button" aria-expanded="false" aria-controls="sales-content">
+                    <span class="tile__icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7z"/>
+                            <circle cx="12" cy="9" r="2.5"/>
+                        </svg>
+                    </span>
+                    <span>نقاط البيع</span>
+                </button>
+
+                <button class="tile" type="button" aria-expanded="false" aria-controls="qr-code">
+                    <span class="tile__icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24">
+                            <rect x="3" y="3" width="7" height="7" rx="1"/>
+                            <rect x="14" y="3" width="7" height="7" rx="1"/>
+                            <rect x="3" y="14" width="7" height="7" rx="1"/>
+                            <path d="M14 14h3v3h-3zM20 14v2M14 20h2M18 18h3v3h-3z"/>
+                        </svg>
+                    </span>
+                    <span>رمز QR</span>
+                </button>
+
+                <button class="tile" type="button" aria-expanded="false" aria-controls="prices-panel">
+                    <span class="tile__icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24">
+                            <circle cx="12" cy="12" r="9"/>
+                            <path d="M15 8.5c-.7-.7-1.6-1-2.8-1-1.4 0-2.4.7-2.4 1.8 0 3 5.2 1.2 5.2 4.4 0 1.2-1.1 2-2.7 2-1.2 0-2.3-.4-3.1-1.2M12 5.5v13"/>
+                        </svg>
+                    </span>
+                    <span>أسعار الكروت</span>
+                </button>
+
+            </div>
+
+            <!-- نقاط البيع -->
+            <section class="panel" id="sales-content" inert aria-label="نقاط البيع">
+                <div class="panel__inner"><div class="panel__body">
+                    <p class="panel__lead">جميع البقالات المجاورة للشبكة</p>
+                    <ul class="sales-list">
+                        <li class="sales-item"><strong>بقالة النور</strong><span>بجانب المسجد</span></li>
+                        <li class="sales-item"><strong>بقالة الخير</strong><span>الشارع الرئيسي</span></li>
+                        <li class="sales-item"><strong>مركز الأمل</strong><span>بجوار السوق</span></li>
+                    </ul>
+                </div></div>
+            </section>
+
+            <!-- رمز QR -->
+            <section class="panel" id="qr-code" inert aria-label="رمز QR">
+                <div class="panel__inner"><div class="panel__body">
+                    <p class="panel__lead">امسح رمز QR للاتصال بالشبكة</p>
+                    <figure class="qr">
+                        <!-- ضع صورة الرمز باسم qr.png بجانب هذا الملف -->
+                        <img id="qrImage" src="qr.png" alt="رمز QR للاتصال بالشبكة" width="176" height="176">
+                        <div class="qr__empty" id="qrEmpty" hidden>رمز QR غير متاح حالياً</div>
+                    </figure>
+                </div></div>
+            </section>
+
+            <!-- أسعار الكروت -->
+            <section class="panel" id="prices-panel" inert aria-label="أسعار الكروت">
+                <div class="panel__inner"><div class="panel__body">
+                    <div class="table-wrap">
+                        <table class="prices">
+                            <caption class="sr-only">أسعار الكروت ومددها</caption>
+                            <thead>
+                                <tr>
+                                    <th scope="col">السعر</th>
+                                    <th scope="col">الوقت</th>
+                                    <th scope="col">الصلاحية</th>
+                                    <th scope="col">التحميل</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>50 ريال</td><td>ساعة</td><td>يوم</td><td>محدود</td></tr>
+                                <tr><td>100 ريال</td><td>3 ساعات</td><td>يوم</td><td>محدود</td></tr>
+                                <tr><td>150 ريال</td><td>5 ساعات</td><td>يومان</td><td>محدود</td></tr>
+                                <tr><td>200 ريال</td><td>7 ساعات</td><td>3 أيام</td><td>محدود</td></tr>
+                                <tr><td>250 ريال</td><td>10 ساعات</td><td>3 أيام</td><td>محدود</td></tr>
+                                <tr><td>300 ريال</td><td>12 ساعة</td><td>5 أيام</td><td>محدود</td></tr>
+                                <tr><td>500 ريال</td><td>20 ساعة</td><td>أسبوع</td><td>محدود</td></tr>
+                                <tr><td>1000 ريال</td><td>40 ساعة</td><td>15 يوماً</td><td>محدود</td></tr>
+                                <tr><td>2000 ريال</td><td>80 ساعة</td><td>30 يوماً</td><td>محدود</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div></div>
+            </section>
+
+        </div>
+
+        <!-- الإشراف والمطورون: الأرقام في config.js — لإضافة مطوّر انسخ <a class="dev"> وغيّر data-dev ثم أضف رقمه في config.js -->
+        <footer class="devs" aria-label="فريق البرمجة">
+            <a class="boss" data-dev="supervisor" aria-label="تحت إشراف م/ سليم ردمان، تواصل عبر واتساب على الرقم 777745677">
+                <span class="boss__role">تحت إشراف</span>
+                <span class="boss__name">م/ سليم ردمان</span>
+                <span class="boss__phone" dir="ltr">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 20.5l1.7-5.4A8.4 8.4 0 1 1 21 11.5z"/></svg>
+                    <span>777745677</span>
+                </span>
+            </a>
+            <p class="devs__mark" aria-hidden="true">
+                <svg class="devs__code" viewBox="0 0 24 24"><path d="M8 7l-5 5 5 5M16 7l5 5-5 5M14 4l-4 16"/></svg>
+                <svg class="devs__heart" viewBox="0 0 24 24"><path d="M12 21s-7.5-4.8-9.6-9.4A5.4 5.4 0 0 1 12 6.2a5.4 5.4 0 0 1 9.6 5.4C19.5 16.2 12 21 12 21z"/></svg>
+                <svg class="devs__code" viewBox="0 0 24 24"><path d="M8 7l-5 5 5 5M16 7l5 5-5 5M14 4l-4 16"/></svg>
+            </p>
+            <div class="devs__list">
+                <a class="dev" data-dev="network" aria-label="برمجة الشبكة م/ عبدالله العاقل، تواصل عبر واتساب">
+                    <span class="dev__role">برمجة الشبكة</span>
+                    <span class="dev__name">م/ عبدالله العاقل</span>
+                </a>
+                <a class="dev" data-dev="page" aria-label="برمجة الصفحة م/ علاء عبدالحكيم، تواصل عبر واتساب">
+                    <span class="dev__role">برمجة الصفحة</span>
+                    <span class="dev__name">م/ علاء عبدالحكيم</span>
+                </a>
+            </div>
+        </footer>
+    </main>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+    <script src="config.js" defer></script>
+    <script src="shared.js" defer></script>
+    <script src="script.js" defer></script>
+    <script src="contacts.js" defer></script>
+</body>
+</html>

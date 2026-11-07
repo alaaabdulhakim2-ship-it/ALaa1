@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الموسسة العامة للكهرباء | لوحة المستخدم</title>
+
+    <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; form-action 'self'; base-uri 'none'; object-src 'none'">
+    <meta name="referrer" content="no-referrer">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="color-scheme" content="light">
+    <meta name="theme-color" content="#1A1340">
+    <link rel="icon" type="image/png" href="images/logo.png">
+
+    <link rel="stylesheet" href="base.css">
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+
+    <main class="shell shell--wide">
+
+        <header class="brand">
+            <div class="brand__mark brand__mark--logo">
+                <img src="images/logo.png" alt="شعار المؤسسة العامة للكهرباء" width="204" height="204">
+            </div>
+            <div>
+                <h1 class="brand__name">المؤسسة العامة للكهرباء</h1>
+                <p class="brand__sub">لوحة المستخدم</p>
+            </div>
+            <span class="chip">متصل</span>
+        </header>
+
+        <noscript><span class="noscript-msg">يلزم تفعيل جافاسكربت لعرض اللوحة.</span></noscript>
+
+        <!-- بانر الإعلانات: ضع صورك داخل مجلد images بنفس الأسماء -->
+        <section class="hero" aria-roledescription="carousel" aria-label="إعلانات المؤسسة العامة للكهرباء">
+            <svg class="hero__wave" viewBox="0 0 440 48" preserveAspectRatio="none" aria-hidden="true">
+                <path d="M0 0H440V14C380 50 300 46 220 26C140 6 70 10 0 40Z" fill="#4F2DCB"/>
+                <path d="M440 14C380 50 300 46 220 26C140 6 70 10 0 40" fill="none" stroke="#5EE0CF" stroke-width="3" vector-effect="non-scaling-stroke"/>
+            </svg>
+
+            <div class="hero__stage">
+                <div class="hero__slides">
+                    <figure class="slide is-active" role="group" aria-roledescription="إعلان" aria-label="1 من 3">
+                        <img src="images/ad-1.jpg" width="1100" height="573" decoding="async" fetchpriority="high"
+                             alt="المؤسسة العامة للكهرباء: اتصال أسرع لحياة أفضل، إنترنت سريع ومستقر وأمان عالٍ للشبكة ودعم فني مستمر">
+                    </figure>
+                    <figure class="slide" role="group" aria-roledescription="إعلان" aria-label="2 من 3">
+                        <img src="images/ad-2.jpg" width="1100" height="573" decoding="async"
+                             alt="المؤسسة العامة للكهرباء: طاقة آمنة لخدمة أفضل، إنترنت سريع ومستقر وأمان عالٍ للشبكة وخدمة متميزة">
+                    </figure>
+                    <figure class="slide" role="group" aria-roledescription="إعلان" aria-label="3 من 3">
+                        <img src="images/ad-3.jpg" width="1100" height="573" decoding="async"
+                             alt="المؤسسة العامة للكهرباء: معاً نحو طاقة أفضل، خدمة آمنة واستقرار دائم لمستقبل مشرق">
+                    </figure>
+                </div>
+                <button class="hero__nav hero__nav--prev" type="button" aria-label="الإعلان السابق"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button>
+                <button class="hero__nav hero__nav--next" type="button" aria-label="الإعلان التالي"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg></button>
+            </div>
+
+            <div class="hero__dots" id="heroDots"></div>
+            <button class="hero__notice" type="button" data-message="اكتب هنا نص إعلانك المهم">هام وعاجل!!</button>
+        </section>
+
+        <div class="dash">
+
+            <p class="note">
+                عزيزي المستخدم، تذكّر أن الله رقيب على كل شيء، فاجعل استخدامك للإنترنت فيما يرضيه وتستفيد منه.
+            </p>
+
+            <section class="balance" id="balance" aria-labelledby="balanceTitle">
+                <h2 id="balanceTitle">إجمالي الرصيد المتبقي</h2>
+                <p class="balance__value"><strong id="balRemain">—</strong><span>ميجابايت</span></p>
+                <div class="gauge" id="gauge" role="progressbar" aria-labelledby="balanceTitle"
+                     aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><i></i></div>
+                <p class="balance__sub">من أصل <span id="balTotal">—</span> ميجابايت</p>
+            </section>
+
+            <dl class="stats">
+                <div class="stat stat--full">
+                    <dt>الوقت المتبقي</dt>
+                    <dd id="timeLeft">—</dd>
+                </div>
+                <div class="stat">
+                    <dt>الوقت المستخدم</dt>
+                    <dd id="timeUsed">—</dd>
+                </div>
+                <div class="stat">
+                    <dt>التحميل المستخدم</dt>
+                    <dd id="dataUsed">—</dd>
+                </div>
+            </dl>
+
+            <div class="actions">
+                <button class="action" type="button" data-link="rest">
+                    <span>افتح الاستراحة</span>
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg>
+                </button>
+                <button class="action" type="button" data-link="live">
+                    <span>افتح البث المباشر</span>
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg>
+                </button>
+                <button class="action" type="button" data-link="app">
+                    <span>حمّل تطبيق الاستراحة</span>
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg>
+                </button>
+            </div>
+
+            <div class="logout">
+                <button class="btn btn--outline" id="logoutBtn" type="button">تسجيل الخروج</button>
+            </div>
+
+        </div>
+        <!-- الإشراف والمطورون: الأرقام في config.js — لإضافة مطوّر انسخ <a class="dev"> وغيّر data-dev ثم أضف رقمه في config.js -->
+        <footer class="devs" aria-label="فريق البرمجة">
+            <a class="boss" data-dev="supervisor" aria-label="تحت إشراف م/ سليم ردمان، تواصل عبر واتساب على الرقم 777745677">
+                <span class="boss__role">تحت إشراف</span>
+                <span class="boss__name">م/ سليم ردمان</span>
+                <span class="boss__phone" dir="ltr">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 20.5l1.7-5.4A8.4 8.4 0 1 1 21 11.5z"/></svg>
+                    <span>777745677</span>
+                </span>
+            </a>
+            <p class="devs__mark" aria-hidden="true">
+                <svg class="devs__code" viewBox="0 0 24 24"><path d="M8 7l-5 5 5 5M16 7l5 5-5 5M14 4l-4 16"/></svg>
+                <svg class="devs__heart" viewBox="0 0 24 24"><path d="M12 21s-7.5-4.8-9.6-9.4A5.4 5.4 0 0 1 12 6.2a5.4 5.4 0 0 1 9.6 5.4C19.5 16.2 12 21 12 21z"/></svg>
+                <svg class="devs__code" viewBox="0 0 24 24"><path d="M8 7l-5 5 5 5M16 7l5 5-5 5M14 4l-4 16"/></svg>
+            </p>
+            <div class="devs__list">
+                <a class="dev" data-dev="network" aria-label="برمجة الشبكة م/ عبدالله العاقل، تواصل عبر واتساب">
+                    <span class="dev__role">برمجة الشبكة</span>
+                    <span class="dev__name">م/ عبدالله العاقل</span>
+                </a>
+                <a class="dev" data-dev="page" aria-label="برمجة الصفحة م/ علاء عبدالحكيم، تواصل عبر واتساب">
+                    <span class="dev__role">برمجة الصفحة</span>
+                    <span class="dev__name">م/ علاء عبدالحكيم</span>
+                </a>
+            </div>
+        </footer>
+    </main>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+    <script src="config.js" defer></script>
+    <script src="shared.js" defer></script>
+    <script src="dashboard.js" defer></script>
+    <script src="contacts.js" defer></script>
+</body>
+</html>
